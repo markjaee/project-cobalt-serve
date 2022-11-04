@@ -1,8 +1,13 @@
-import { Application, Context } from "https://deno.land/x/oak/mod.ts";
+import { Application } from 'https://deno.land/x/oak/mod.ts';
+import router from './routes.ts';
+
+const HOST = 'localhost';
+const PORT = 8080;
+
 const app = new Application();
 
-app.use((ctx : Context) => {
-    ctx.response.body = "Hello world!";
-});
+app.use(router.routes());
+app.use(router.allowedMethods());
 
-await app.listen({ port: 8000 });
+console.log(`Listening on port ${PORT} ...`);
+await app.listen(`${HOST}:${PORT}`);
