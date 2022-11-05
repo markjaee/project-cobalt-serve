@@ -1,8 +1,10 @@
+import { db } from '../../db/config/mongodb.ts';
+
 const getMySpace = ({ params, response }: { params: { id: string }; response: any }) => {
-  const output : any = {data: "helloooooo"};
-  if (output) {
+  if (db) {
+    console.log("Database successfully connected");
     response.status = 200;
-    response.body = output;
+    response.body = JSON.stringify(db);
   } else {
     response.status = 404;
     response.body = { message: `Book not found.` };
