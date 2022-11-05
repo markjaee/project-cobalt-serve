@@ -1,6 +1,5 @@
-import { Long } from "https://deno.land/x/mongo@v0.22.0/bson/bson.d.ts";
 
-interface User {
+export interface UserEntity extends Schema {
     _id: { $oid: string };
     userName: string;
     pw: string;
@@ -8,3 +7,5 @@ interface User {
     firstName: string;
     birthDate: string;
 }
+
+export interface Schema { }

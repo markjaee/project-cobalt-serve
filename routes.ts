@@ -1,10 +1,10 @@
-import { Router }from 'https://deno.land/x/oak/mod.ts'
+import { Router } from './deps.ts';
 import { getMySpace } from './controllers/space/myspace.ts';
-import { addUser, deleteUser, editUser } from './controllers/utils/users.ts';
 
 const router = new Router();
 
 //👇 routes setup
-router.get('/my/:id', getMySpace);
+router
+    .get('/my/:id', getMySpace); //displaying your own space
 
 export default router;
